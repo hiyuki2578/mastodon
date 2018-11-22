@@ -11,7 +11,7 @@ class ActivityPub::ActorSerializer < ActivityPub::Serializer
   attributes :id, :type, :following, :followers,
              :inbox, :outbox, :featured,
              :preferred_username, :name, :summary,
-             :url, :manually_approves_followers
+             :url, :manually_approves_followers, :is_cat
 
   has_one :public_key, serializer: ActivityPub::PublicKeySerializer
 
@@ -108,6 +108,10 @@ class ActivityPub::ActorSerializer < ActivityPub::Serializer
 
   def manually_approves_followers
     object.locked
+  end
+
+  def is_cat
+    object.cat
   end
 
   def virtual_tags

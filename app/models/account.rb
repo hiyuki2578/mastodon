@@ -45,6 +45,7 @@
 #  actor_type              :string
 #  discoverable            :boolean
 #  also_known_as           :string           is an Array
+#  cat                     :boolean          default(FALSE), not null
 #
 
 class Account < ApplicationRecord
