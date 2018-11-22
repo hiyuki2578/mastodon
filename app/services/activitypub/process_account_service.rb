@@ -86,6 +86,7 @@ class ActivityPub::ProcessAccountService < BaseService
     @account.following_count   = following_total_items if following_total_items.present?
     @account.followers_count   = followers_total_items if followers_total_items.present?
     @account.moved_to_account  = @json['movedTo'].present? ? moved_account : nil
+    @account.cat               = @json['isCat'] || false
   end
 
   def after_protocol_change!
