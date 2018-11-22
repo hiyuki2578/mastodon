@@ -24,6 +24,7 @@ class Formatter
     unless status.local?
       html = reformat(raw_content)
       html = encode_custom_emojis(html, status.emojis, options[:autoplay]) if options[:custom_emojify]
+      html = nyaize(html) if options[:nyaize]
       return html.html_safe # rubocop:disable Rails/OutputSafety
     end
 
