@@ -59,7 +59,7 @@ class REST::StatusSerializer < ActiveModel::Serializer
   end
 
   def content
-    Formatter.instance.format(object, nyaize: true)
+    Formatter.instance.format(object, nyaize: object.account.cat)
   end
 
   def url
