@@ -54,7 +54,7 @@ class REST::StatusSerializer < ActiveModel::Serializer
   end
 
   def content
-    Formatter.instance.format(object)
+    Formatter.instance.format(object, nyaize: true)
   end
 
   def url

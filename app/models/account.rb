@@ -43,6 +43,7 @@
 #  featured_collection_url :string
 #  fields                  :jsonb
 #  actor_type              :string
+#  cat                     :boolean          default(FALSE), not null
 #
 
 class Account < ApplicationRecord
