@@ -109,7 +109,7 @@ class ActivityPub::ActorSerializer < ActiveModel::Serializer
   end
 
   def virtual_tags
-    object.emojis
+    object.emojis + object.tags
   end
 
   def virtual_attachments
@@ -121,6 +121,24 @@ class ActivityPub::ActorSerializer < ActiveModel::Serializer
   end
 
   class CustomEmojiSerializer < ActivityPub::EmojiSerializer
+  end
+
+  class TagSerializer < ActiveModel::Serializer
+    include RoutingHelper
+
+    attributes :type, :href, :name
+
+    def type
+      'Hashtag'
+    end
+
+    def href
+      explore_hashtag_url(object)
+    end
+
+    def name
+      "##{object.name}"
+    end
   end
 
   class Account::FieldSerializer < ActiveModel::Serializer
