@@ -18,7 +18,6 @@
 
       = f.input :avatar, wrapper: :with_label, input_html: { accept: AccountAvatar::IMAGE_MIME_TYPES.join(',') }, hint: t('simple_form.hints.defaults.avatar', dimensions: '400x400', size: number_to_human_size(AccountAvatar::LIMIT))
 
-
   %hr.spacer/
 
   .fields-group
@@ -29,6 +28,10 @@
 
   .fields-group
     = f.input :cat, as: :boolean, wrapper: :with_label, hint: t('simple_form.hints.defaults.cat')
+
+  - if Setting.profile_directory
+    .fields-group
+      = f.input :discoverable, as: :boolean, wrapper: :with_label, hint: t('simple_form.hints.defaults.discoverable_html', min_followers: Account::MIN_FOLLOWERS_DISCOVERY, path: explore_path)
 
   %hr.spacer/
 
