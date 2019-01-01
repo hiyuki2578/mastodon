@@ -45,6 +45,7 @@
 #  actor_type              :string
 #  cat                     :boolean          default(FALSE), not null
 #  discoverable            :boolean
+#  also_known_as           :string           is an Array
 #
 
 class Account < ApplicationRecord
@@ -226,6 +227,10 @@ class Account < ApplicationRecord
         tag.increment_count!(:accounts_count)
       end
     end
+  end
+
+  def also_known_as
+    self[:also_known_as] || []
   end
 
   def fields
