@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_17_114553) do
+ActiveRecord::Schema.define(version: 2019_02_01_012802) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -291,6 +291,7 @@ ActiveRecord::Schema.define(version: 2019_01_17_114553) do
     t.integer "data_file_size"
     t.datetime "data_updated_at"
     t.bigint "account_id", null: false
+    t.boolean "overwrite", default: false, null: false
   end
 
   create_table "invites", force: :cascade do |t|
