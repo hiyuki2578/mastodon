@@ -387,7 +387,7 @@ class Account < ApplicationRecord
       DeliveryFailureTracker.filter(urls)
     end
 
-    def search_for(terms, limit = 10)
+    def search_for(terms, limit = 10, offset = 0)
       textsearch, query = generate_query_for_search(terms)
 
       sql = <<-SQL.squish
@@ -399,15 +399,15 @@ class Account < ApplicationRecord
           AND accounts.suspended = false
           AND accounts.moved_to_account_id IS NULL
         ORDER BY rank DESC
-        LIMIT ?
+        LIMIT ? OFFSET ?
       SQL
 
-      records = find_by_sql([sql, limit])
+      records = find_by_sql([sql, limit, offset])
       ActiveRecord::Associations::Preloader.new.preload(records, :account_stat)
       records
     end
 
-    def advanced_search_for(terms, account, limit = 10, following = false)
+    def advanced_search_for(terms, account, limit = 10, following = false, offset = 0)
       textsearch, query = generate_query_for_search(terms)
 
       if following
@@ -428,10 +428,10 @@ class Account < ApplicationRecord
             AND accounts.moved_to_account_id IS NULL
           GROUP BY accounts.id
           ORDER BY rank DESC
-          LIMIT ?
+          LIMIT ? OFFSET ?
         SQL
 
-        records = find_by_sql([sql, account.id, account.id, account.id, limit])
+        records = find_by_sql([sql, account.id, account.id, account.id, limit, offset])
       else
         sql = <<-SQL.squish
           SELECT
@@ -444,10 +444,10 @@ class Account < ApplicationRecord
             AND accounts.moved_to_account_id IS NULL
           GROUP BY accounts.id
           ORDER BY rank DESC
-          LIMIT ?
+          LIMIT ? OFFSET ?
         SQL
 
-        records = find_by_sql([sql, account.id, account.id, limit])
+        records = find_by_sql([sql, account.id, account.id, limit, offset])
       end
 
       ActiveRecord::Associations::Preloader.new.preload(records, :account_stat)
