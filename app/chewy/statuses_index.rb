@@ -8,6 +8,7 @@ class StatusesIndex < Chewy::Index
         mode: 'search',
         discard_punctuation: true,
         resources_path: '/usr/share/elasticsearch/config/sudachi',
+        settings_path: '/usr/share/elasticsearch/config/sudachi/sudachi.json',
       },
     },
     analyzer: {
