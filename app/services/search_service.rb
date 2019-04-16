@@ -33,7 +33,7 @@ class SearchService < BaseService
   end
 
   def perform_statuses_search!
-    definition = StatusesIndex.query(match: { 'text.stemmed': { query: @query, operator: 'and'}}).order(created_at: { order: 'desc' })
+    definition = StatusesIndex.query(match: { 'text.stemmed': { query: @query, operator: 'and'}})
 
     if @options[:account_id].present?
       definition = definition.filter(term: { account_id: @options[:account_id] })
