@@ -146,6 +146,7 @@ ActiveRecord::Schema.define(version: 2019_04_09_054914) do
     t.string "featured_collection_url"
     t.jsonb "fields"
     t.string "actor_type"
+    t.boolean "cat", default: false, null: false
     t.boolean "discoverable"
     t.string "also_known_as", array: true
     t.index "(((setweight(to_tsvector('simple'::regconfig, (display_name)::text), 'A'::\"char\") || setweight(to_tsvector('simple'::regconfig, (username)::text), 'B'::\"char\")) || setweight(to_tsvector('simple'::regconfig, (COALESCE(domain, ''::character varying))::text), 'C'::\"char\")))", name: "search_index", using: :gin
