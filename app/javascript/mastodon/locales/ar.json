@@ -1,6 +1,7 @@
 {
   "account.add_or_remove_from_list": "أضيف/ي أو أحذف/ي من القائمة",
   "account.badges.bot": "روبوت",
+  "account.badges.cat": "Cat",
   "account.block": "حظر @{name}",
   "account.block_domain": "إخفاء كل شيئ قادم من إسم النطاق {domain}",
   "account.blocked": "محظور",

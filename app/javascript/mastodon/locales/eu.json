@@ -1,6 +1,7 @@
 {
   "account.add_or_remove_from_list": "Gehitu edo kendu zerrendetatik",
   "account.badges.bot": "Bot",
+  "account.badges.cat": "Cat",
   "account.block": "Blokeatu @{name}",
   "account.block_domain": "Ezkutatu {domain} domeinuko guztia",
   "account.blocked": "Blokeatuta",

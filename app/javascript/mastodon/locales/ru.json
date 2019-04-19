@@ -1,6 +1,7 @@
 {
   "account.add_or_remove_from_list": "Добавить или удалить из списков",
   "account.badges.bot": "Бот",
+  "account.badges.cat": "Cat",
   "account.block": "Блокировать",
   "account.block_domain": "Блокировать все с {domain}",
   "account.blocked": "Заблокирован(а)",
@@ -118,7 +119,6 @@
   "emoji_button.travel": "Путешествия",
   "empty_column.account_timeline": "Статусов нет!",
   "empty_column.account_unavailable": "Профиль недоступен",
-  "empty_column.account_timeline_blocked": "Вы заблокированы",
   "empty_column.blocks": "Вы ещё никого не заблокировали.",
   "empty_column.community": "Локальная лента пуста. Напишите что-нибудь, чтобы разогреть народ!",
   "empty_column.direct": "У Вас пока нет личных сообщений. Когда Вы начнёте их отправлять или получать, они появятся здесь.",
