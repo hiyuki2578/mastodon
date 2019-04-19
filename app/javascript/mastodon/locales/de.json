@@ -1,6 +1,7 @@
 {
   "account.add_or_remove_from_list": "Hinzufügen oder Entfernen von Listen",
   "account.badges.bot": "Bot",
+  "account.badges.cat": "Cat",
   "account.block": "@{name} blockieren",
   "account.block_domain": "Alles von {domain} verstecken",
   "account.blocked": "Blockiert",
