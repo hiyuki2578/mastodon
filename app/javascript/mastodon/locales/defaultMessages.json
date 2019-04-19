@@ -709,6 +709,10 @@
         "id": "account.badges.bot"
       },
       {
+        "defaultMessage": "Cat",
+        "id": "account.badges.cat"
+      },
+      {
         "defaultMessage": "Toots",
         "id": "account.posts"
       },

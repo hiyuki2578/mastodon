@@ -1,6 +1,7 @@
 {
   "account.add_or_remove_from_list": "Add or Remove from lists",
   "account.badges.bot": "Бот",
+  "account.badges.cat": "Cat",
   "account.block": "Блокирај @{name}",
   "account.block_domain": "Сакриј све са домена {domain}",
   "account.blocked": "Блокиран",
