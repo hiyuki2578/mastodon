@@ -1,6 +1,7 @@
 {
   "account.add_or_remove_from_list": "從名單中新增或移除",
   "account.badges.bot": "機器人",
+  "account.badges.cat": "Cat",
   "account.block": "封鎖 @{name}",
   "account.block_domain": "隱藏來自 {domain} 的所有嘟文",
   "account.blocked": "已封鎖",

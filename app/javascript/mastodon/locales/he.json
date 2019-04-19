@@ -1,6 +1,7 @@
 {
   "account.add_or_remove_from_list": "Add or Remove from lists",
   "account.badges.bot": "Bot",
+  "account.badges.cat": "Cat",
   "account.block": "חסימת @{name}",
   "account.block_domain": "להסתיר הכל מהקהילה {domain}",
   "account.blocked": "Blocked",

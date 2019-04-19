@@ -1,6 +1,7 @@
 {
   "account.add_or_remove_from_list": "Přidat nebo odstranit ze seznamů",
   "account.badges.bot": "Robot",
+  "account.badges.cat": "Cat",
   "account.block": "Zablokovat uživatele @{name}",
   "account.block_domain": "Skrýt vše z {domain}",
   "account.blocked": "Blokován/a",

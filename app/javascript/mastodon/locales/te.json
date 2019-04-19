@@ -1,6 +1,7 @@
 {
   "account.add_or_remove_from_list": "జాబితాల నుండి చేర్చు లేదా తీసివేయి",
   "account.badges.bot": "బాట్",
+  "account.badges.cat": "Cat",
   "account.block": "@{name} ను బ్లాక్ చేయి",
   "account.block_domain": "{domain} నుంచి అన్నీ దాచిపెట్టు",
   "account.blocked": "బ్లాక్ అయినవి",
