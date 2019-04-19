@@ -1,6 +1,7 @@
 {
   "account.add_or_remove_from_list": "Aghjustà o toglie da e liste",
   "account.badges.bot": "Bot",
+  "account.badges.cat": "Cat",
   "account.block": "Bluccà @{name}",
   "account.block_domain": "Piattà tuttu da {domain}",
   "account.blocked": "Bluccatu",

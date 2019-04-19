@@ -1,6 +1,7 @@
 {
   "account.add_or_remove_from_list": "リストから追加または外す",
   "account.badges.bot": "Bot",
+  "account.badges.cat": "Cat",
   "account.block": "@{name}さんをブロック",
   "account.block_domain": "{domain}全体を非表示",
   "account.blocked": "ブロック済み",
