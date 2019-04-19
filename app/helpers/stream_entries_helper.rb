@@ -35,19 +35,21 @@ module StreamEntriesHelper
   end
 
   def account_badge(account, all: false)
-    if account.bot?
-      content_tag(:div, content_tag(:div, t('accounts.roles.bot'), class: 'account-role bot'), class: 'roles')
-    elsif (Setting.show_staff_badge && account.user_staff?) || all
-      content_tag(:div, class: 'roles') do
-        if all && !account.user_staff?
-          content_tag(:div, t('admin.accounts.roles.user'), class: 'account-role')
-        elsif account.user_admin?
-          content_tag(:div, t('accounts.roles.admin'), class: 'account-role admin')
-        elsif account.user_moderator?
-          content_tag(:div, t('accounts.roles.moderator'), class: 'account-role moderator')
-        end
+    roles = []
+
+    roles.push content_tag(:div, t('accounts.roles.bot'), class: 'account-role bot') if account.bot?
+    roles.push content_tag(:div, t('accounts.roles.cat'), class: 'account-role cat') if account.cat?
+
+    if (Setting.show_staff_badge && account.user_staff?) || all
+      if all && !account.user_staff?
+        roles.push content_tag(:div, t('admin.accounts.roles.user'), class: 'account-role')
+      elsif account.user_admin?
+        roles.push content_tag(:div, t('accounts.roles.admin'), class: 'account-role admin')
+      elsif account.user_moderator?
+        roles.push content_tag(:div, t('accounts.roles.moderator'), class: 'account-role moderator')
       end
     end
+    content_tag(:div, safe_join(roles, ' '), class: 'roles') unless roles.empty?
   end
 
   def link_to_more(url)

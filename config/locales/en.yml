@@ -67,6 +67,7 @@ en:
     roles:
       admin: Admin
       bot: Bot
+      cat: Cat
       moderator: Mod
     unavailable: Profile unavailable
     unfollow: Unfollow
