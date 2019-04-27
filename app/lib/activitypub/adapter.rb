@@ -20,6 +20,7 @@ class ActivityPub::Adapter < ActiveModelSerializers::Adapter::Base
     focal_point: { 'toot' => 'http://joinmastodon.org/ns#', 'focalPoint' => { '@container' => '@list', '@id' => 'toot:focalPoint' } },
     identity_proof: { 'toot' => 'http://joinmastodon.org/ns#', 'IdentityProof' => 'toot:IdentityProof' },
     is_cat: { 'isCat' => 'as:isCat' },
+    blurhash: { 'toot' => 'http://joinmastodon.org/ns#', 'blurhash' => 'toot:blurhash' },
   }.freeze
 
   def self.default_key_transform
