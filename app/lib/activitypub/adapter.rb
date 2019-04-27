@@ -1,30 +1,26 @@
 # frozen_string_literal: true
 
 class ActivityPub::Adapter < ActiveModelSerializers::Adapter::Base
-  CONTEXT = {
-    '@context': [
-      'https://www.w3.org/ns/activitystreams',
-      'https://w3id.org/security/v1',
+  NAMED_CONTEXT_MAP = {
+    activitystreams: 'https://www.w3.org/ns/activitystreams',
+    security: 'https://w3id.org/security/v1',
+  }.freeze
 
-      {
-        'manuallyApprovesFollowers' => 'as:manuallyApprovesFollowers',
-        'sensitive'                 => 'as:sensitive',
-        'movedTo'                   => { '@id' => 'as:movedTo', '@type' => '@id' },
-        'Hashtag'                   => 'as:Hashtag',
-        'ostatus'                   => 'http://ostatus.org#',
-        'atomUri'                   => 'ostatus:atomUri',
-        'inReplyToAtomUri'          => 'ostatus:inReplyToAtomUri',
-        'conversation'              => 'ostatus:conversation',
-        'toot'                      => 'http://joinmastodon.org/ns#',
-        'Emoji'                     => 'toot:Emoji',
-        'focalPoint'                => { '@container' => '@list', '@id' => 'toot:focalPoint' },
-        'featured'                  => { '@id' => 'toot:featured', '@type' => '@id' },
-        'schema'                    => 'http://schema.org#',
-        'PropertyValue'             => 'schema:PropertyValue',
-        'value'                     => 'schema:value',
-        'isCat'                     => 'as:isCat',
-      },
-    ],
+  CONTEXT_EXTENSION_MAP = {
+    manually_approves_followers: { 'manuallyApprovesFollowers' => 'as:manuallyApprovesFollowers' },
+    sensitive: { 'sensitive' => 'as:sensitive' },
+    hashtag: { 'Hashtag' => 'as:Hashtag' },
+    moved_to: { 'movedTo' => { '@id' => 'as:movedTo', '@type' => '@id' } },
+    also_known_as: { 'alsoKnownAs' => { '@id' => 'as:alsoKnownAs', '@type' => '@id' } },
+    emoji: { 'toot' => 'http://joinmastodon.org/ns#', 'Emoji' => 'toot:Emoji' },
+    featured: { 'toot' => 'http://joinmastodon.org/ns#', 'featured' => { '@id' => 'toot:featured', '@type' => '@id' } },
+    property_value: { 'schema' => 'http://schema.org#', 'PropertyValue' => 'schema:PropertyValue', 'value' => 'schema:value' },
+    atom_uri: { 'ostatus' => 'http://ostatus.org#', 'atomUri' => 'ostatus:atomUri' },
+    conversation: { 'ostatus' => 'http://ostatus.org#', 'inReplyToAtomUri' => 'ostatus:inReplyToAtomUri', 'conversation' => 'ostatus:conversation' },
+    focal_point: { 'toot' => 'http://joinmastodon.org/ns#', 'focalPoint' => { '@container' => '@list', '@id' => 'toot:focalPoint' } },
+    identity_proof: { 'toot' => 'http://joinmastodon.org/ns#', 'IdentityProof' => 'toot:IdentityProof' },
+    is_cat: { 'isCat' => 'as:isCat' },
+    blurhash: { 'toot' => 'http://joinmastodon.org/ns#', 'blurhash' => 'toot:blurhash' },
   }.freeze
 
   def self.default_key_transform
