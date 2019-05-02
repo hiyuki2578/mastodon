@@ -39,7 +39,6 @@ export default class Avatar extends React.PureComponent {
 
     const src = account.get('avatar');
     const staticSrc = account.get('avatar_static');
-    const isCat = !!account.get('cat');
 
     let className = 'account__avatar';
 
@@ -47,24 +46,17 @@ export default class Avatar extends React.PureComponent {
       className = className + ' account__avatar-inline';
     }
 
-    if (isCat) {
-      className = className + ' account__avatar-cat';
-    }
-
     const style = {
       ...this.props.style,
       width: `${size}px`,
       height: `${size}px`,
-    };
-
-    const innerStyle={
       backgroundSize: `${size}px ${size}px`,
     };
 
     if (hovering || animate) {
-      innerStyle.backgroundImage = `url(${src})`;
+      style.backgroundImage = `url(${src})`;
     } else {
-      innerStyle.backgroundImage = `url(${staticSrc})`;
+      style.backgroundImage = `url(${staticSrc})`;
     }
 
     return (
@@ -73,9 +65,7 @@ export default class Avatar extends React.PureComponent {
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}
         style={style}
-      >
-        <div className={'account__avatar-inner'} style={innerStyle} />
-      </div>
+      />
     );
   }
 
