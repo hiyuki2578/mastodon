@@ -33,7 +33,7 @@ module Mastodon
     end
 
     def repository
-      ENV.fetch('GITHUB_REPOSITORY') { 'hiyuki2578/mastodon' }
+      ENV.fetch('GITHUB_REPOSITORY') { 'ProjectMyosotis/mastodon' }
     end
 
     def source_base_url
