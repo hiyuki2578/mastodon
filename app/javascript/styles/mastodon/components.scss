@@ -1192,6 +1192,40 @@
       box-sizing: border-box;
     }
   }
+
+  &-cat::before,
+  &-cat::after {
+    background: #df548f;
+    box-sizing: border-box;
+    content: '';
+    display: inline-block;
+    height: 50%;
+    width: 50%;
+    position: absolute;
+  }
+
+  &-cat::before {
+    border-radius: 0 75% 75%;
+    transform: rotate(37.5deg) skew(30deg);
+    left: 0;
+  }
+
+  &-cat::after {
+    border-radius: 75% 0 75% 75%;
+    transform: rotate(-37.5deg) skew(-30deg);
+    right: 0;
+  }
+
+  &-inner {
+    @include avatar-radius();
+    background-color: $ui-base-color;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
 }
 
 a .account__avatar {
@@ -1384,7 +1418,7 @@ a.account__display-name {
   display: block;
   line-height: 24px;
   margin-bottom: 15px;
-  overflow: hidden;
+  //overflow: hidden;
 
   strong,
   span {
