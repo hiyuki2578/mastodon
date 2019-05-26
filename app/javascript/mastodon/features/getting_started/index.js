@@ -76,12 +76,12 @@ class GettingStarted extends ImmutablePureComponent {
   };
 
   componentDidMount () {
-    const { myAccount, fetchFollowRequests } = this.props;
+    const { myAccount, fetchFollowRequests, multiColumn } = this.props;
 
-    //if (window.innerWidth >= NAVIGATION_PANEL_BREAKPOINT) {
-      //this.context.router.history.replace('/timelines/home');
-      //return;
-    //}
+    if (!multiColumn && window.innerWidth >= NAVIGATION_PANEL_BREAKPOINT) {
+      this.context.router.history.replace('/timelines/home');
+      return;
+    }
 
     if (myAccount.get('locked')) {
       fetchFollowRequests();
