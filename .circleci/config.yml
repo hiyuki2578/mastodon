@@ -3,25 +3,17 @@ jobs:
   build:
     machine: true
     steps:
-      - checkout
-      - run:
-          name: Docker Login
-          command: docker login -u $DOCKER_USER -p $DOCKER_PASS
-      - run:
-          name: Pull Docker Image
-          command: docker pull -a accelforce/odakyudon
-      - run:
-          name: Build Dependencies
-          command: docker build --target build-dep -t accelforce/odakyudon:build-dep --cache-from accelforce/odakyudon:build-dep .
-      - run:
-          name: Docker Push
-          command: docker push accelforce/odakyudon:build-dep
-      - run:
-          name: Docker Build
-          command: docker build -t accelforce/odakyudon:latest --cache-from accelforce/odakyudon:build-dep --cache-from accelforce/odakyudon:latest .
-      - run:
-          name: Docker Push
-          command: docker push accelforce/odakyudon:latest
+      - *attach_workspace
+      - run: ./bin/retry yarn test:jest
+
+  check-i18n:
+    <<: *defaults
+    steps:
+      - *attach_workspace
+      - run: bundle exec i18n-tasks check-normalized
+      - run: bundle exec i18n-tasks unused -l en
+      - run: bundle exec i18n-tasks check-consistent-interpolations
+
 workflows:
   version: 2
   build:
