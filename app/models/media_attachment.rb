@@ -98,13 +98,13 @@ class MediaAttachment < ApplicationRecord
     },
   }.freeze
 
-  IMAGE_LIMIT = 15.megabytes
   VIDEO_CONVERTED_STYLES = {
     small: VIDEO_STYLES[:small],
     original: VIDEO_FORMAT,
   }.freeze
 
-  VIDEO_LIMIT = 40.megabytes
+  IMAGE_LIMIT = 15.megabytes
+  VIDEO_LIMIT = 200.megabytes
 
   belongs_to :account,          inverse_of: :media_attachments, optional: true
   belongs_to :status,           inverse_of: :media_attachments, optional: true
