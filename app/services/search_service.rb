@@ -69,7 +69,7 @@ class SearchService < BaseService
   end
 
   def url_query?
-    @options[:type].blank? && @query =~ /\Ahttps?:\/\//
+    @resolve && @options[:type].blank? && @query =~ /\Ahttps?:\/\//
   end
 
   def url_resource_results
@@ -118,5 +118,9 @@ class SearchService < BaseService
       following: Account.following_map(account_ids, account.id),
       domain_blocking_by_domain: Account.domain_blocking_map_by_domain(domains, account.id),
     }
+  end
+
+  def parsed_query
+    SearchQueryTransformer.new.apply(SearchQueryParser.new.parse(@query))
   end
 end
