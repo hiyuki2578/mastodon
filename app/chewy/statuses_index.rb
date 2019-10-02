@@ -25,6 +25,7 @@ class StatusesIndex < Chewy::Index
       },
     },
   }
+
   define_type ::Status.unscoped.without_reblogs.includes(:media_attachments) do
     crutch :mentions do |collection|
       data = ::Mention.where(status_id: collection.map(&:id)).pluck(:status_id, :account_id)
@@ -50,7 +51,6 @@ class StatusesIndex < Chewy::Index
       end
 
       field :searchable_by, type: 'long', value: ->(status, crutches) { status.searchable_by(crutches) }
-      field :created_at, type: 'date'
     end
   end
 end

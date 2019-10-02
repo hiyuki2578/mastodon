@@ -120,4 +120,5 @@ class SearchService < BaseService
       domain_blocking_by_domain: Account.domain_blocking_map_by_domain(domains, account.id),
     }
   end
+
 end

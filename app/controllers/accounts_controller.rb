@@ -129,11 +129,15 @@ class AccountsController < ApplicationController
   end
 
   def media_requested?
-    request.path.ends_with?('/media')
+    request.path.ends_with?('/media') && !tag_requested?
   end
 
   def replies_requested?
-    request.path.ends_with?('/with_replies')
+    request.path.ends_with?('/with_replies') && !tag_requested?
+  end
+
+  def tag_requested?
+    request.path.split('.').first.ends_with?(Addressable::URI.parse("/tagged/#{params[:tag]}").normalize)
   end
 
   def tag_requested?
