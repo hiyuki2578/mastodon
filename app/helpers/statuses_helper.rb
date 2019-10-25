@@ -90,27 +90,6 @@ module StatusesHelper
     end
   end
 
-  def account_description(account)
-    prepend_str = [
-      [
-        number_to_human(account.statuses_count, strip_insignificant_zeros: true),
-        I18n.t('accounts.posts', count: account.statuses_count),
-      ].join(' '),
-
-      [
-        number_to_human(account.following_count, strip_insignificant_zeros: true),
-        I18n.t('accounts.following', count: account.following_count),
-      ].join(' '),
-
-      [
-        number_to_human(account.followers_count, strip_insignificant_zeros: true),
-        I18n.t('accounts.followers', count: account.followers_count),
-      ].join(' '),
-    ].join(', ')
-
-    [prepend_str, account.note].join(' · ')
-  end
-
   def media_summary(status)
     attachments = { image: 0, video: 0 }
 
@@ -154,14 +133,6 @@ module StatusesHelper
 
   def stream_link_target
     embedded_view? ? '_blank' : nil
-  end
-
-  def acct(account)
-    if account.local?
-      "@#{account.acct}@#{Rails.configuration.x.local_domain}"
-    else
-      "@#{account.acct}"
-    end
   end
 
   def style_classes(status, is_predecessor, is_successor, include_threads)
