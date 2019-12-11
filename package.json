@@ -67,6 +67,7 @@
     "@babel/preset-env": "^7.7.4",
     "@babel/preset-react": "^7.7.4",
     "@babel/runtime": "^7.7.4",
+    "@gamestdio/websocket": "^0.3.2",
     "@clusterws/cws": "^0.16.0",
     "array-includes": "^3.0.3",
     "arrow-key-navigation": "^1.1.0",
@@ -153,7 +154,7 @@
     "sass-loader": "^8.0.0",
     "stringz": "^2.0.0",
     "substring-trie": "^1.0.2",
-    "terser-webpack-plugin": "^2.2.1",
+    "terser-webpack-plugin": "^2.2.2",
     "tesseract.js": "^2.0.0-alpha.16",
     "throng": "^4.0.0",
     "tiny-queue": "^0.2.1",
@@ -164,7 +165,6 @@
     "webpack-bundle-analyzer": "^3.6.0",
     "webpack-cli": "^3.3.10",
     "webpack-merge": "^4.2.1",
-    "websocket.js": "^0.1.12",
     "wicg-inert": "^3.0.0"
   },
   "devDependencies": {
