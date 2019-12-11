@@ -79,6 +79,7 @@ en:
       admin: Admin
       bot: Bot
       cat: Cat
+      group: Group
       moderator: Mod
     unavailable: Profile unavailable
     unfollow: Unfollow
