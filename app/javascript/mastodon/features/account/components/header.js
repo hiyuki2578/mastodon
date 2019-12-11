@@ -240,22 +240,8 @@ class Header extends ImmutablePureComponent {
     const fields          = account.get('fields');
     const botBadge        = account.get('bot') ? (<div className='account-role bot'><FormattedMessage id='account.badges.bot' defaultMessage='Bot' /></div>) : null;
     const catBadge        = account.get('cat') ? (<div className='account-role cat'><FormattedMessage id='account.badges.cat' defaultMessage='Cat' /></div>) : null;
+    const groupBadge      = account.get('group') ? (<div className='account-role group'><FormattedMessage id='account.badges.group' defaultMessage='Group' /></div>) : null;
     const acct            = account.get('acct').indexOf('@') === -1 && domain ? `${account.get('acct')}@${domain}` : account.get('acct');
-
-    let badge = "";
-
-    if (account.get('bot')) {
-      badge += (<div className='account-role bot'><FormattedMessage id='account.badges.bot' defaultMessage='Bot' /></div>);
-    }
-    if (account.get('cat')) {
-      badge += (<div className='account-role cat'><FormattedMessage id='account.nadges.cat' defaultMessage='Cat' /></div>)
-    }
-    if (account.get('group')) {
-      badge += (<div className='account-role group'><FormattedMessage id='account.badges.group' defaultMessage='Group' /></div>);
-    }
-    if (badge.length === 0) {
-      badge = null;
-    }
 
     return (
       <div className={classNames('account__header', { inactive: !!account.get('moved') })} ref={this.setRef}>
@@ -284,7 +270,7 @@ class Header extends ImmutablePureComponent {
 
           <div className='account__header__tabs__name'>
             <h1>
-              <span dangerouslySetInnerHTML={displayNameHtml} /> {botBadge} {catBadge}
+              <span dangerouslySetInnerHTML={displayNameHtml} /> {botBadge} {catBadge} {groupBadge}
               <small>@{acct} {lockedIcon}</small>
             </h1>
           </div>
