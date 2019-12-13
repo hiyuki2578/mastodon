@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@master
       - name: Setup Dependencies
         run: |
-          sudo apt update
+          #sudo apt update
           sudo apt install --no-install-recommends build-essential gnupg2 libicu-dev libidn11-dev libtool libpq-dev libprotobuf-dev python libicu63 libidn11 libpq5 libprotobuf10 openssl protobuf-compiler
       - name: Install brotli
         run: |
