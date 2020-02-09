@@ -48,6 +48,8 @@ class Formatter
 
   def reformat(html)
     sanitize(html, Sanitize::Config::MASTODON_STRICT)
+  rescue ArgumentError
+    ''
   end
 
   def plaintext(status)
