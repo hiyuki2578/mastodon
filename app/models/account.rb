@@ -48,6 +48,8 @@
 #  suspended_at            :datetime
 #  trust_level             :integer
 #  hide_collections        :boolean
+#  avatar_storage_schema_version :integer
+#  header_storage_schema_version :integer
 #
 
 class Account < ApplicationRecord
