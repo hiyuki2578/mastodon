@@ -1,5 +1,8 @@
 name: Building Images
-on: [push]
+on: 
+  push:
+    branches:
+      - hiyuki/master
 
 jobs:
   pre-compile:
