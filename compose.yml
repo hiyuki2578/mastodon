@@ -27,12 +27,19 @@ services:
 #    image: hiyuki2578/docker-elasticsearch-sudachi:6.4.2
 #    environment:
 #      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+#      - "cluster.name=es-mastodon"
+#      - "discovery.type=single-node"
+#      - "bootstrap.memory_lock=true"
 #    networks:
 #      - internal_network
 #    healthcheck:
 #      test: ["CMD-SHELL", "curl --silent --fail localhost:9200/_cluster/health || exit 1"]
 #    volumes:
 #      - ./elasticsearch:/usr/share/elasticsearch/data
+#    ulimits:
+#      memlock:
+#        soft: -1
+#        hard: -1
 
   web:
     image: projectmyosotis/mastodon:{Image_tag}
