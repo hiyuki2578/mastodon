@@ -1,6 +1,10 @@
 .bundle
 .env
 .env.*
+.git
+.gitattributes
+.gitignore
+.github
 public/system
 node_modules
 neo4j
